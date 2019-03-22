@@ -1,0 +1,10 @@
+python -m venv path
+
+source <path>/bin/activate
+<path>/Scripts/activate.bat
+<path>/Scripts/Activate.ps1
+	set-executionpolicy remotesigned	#先修改ps的 执行策略
+
+deactivate
+
+https://www.jianshu.com/p/d8e7135dca40

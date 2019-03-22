@@ -1,0 +1,36 @@
+坑之路
+
+引用模块和引用模块中的对象区别。
+	#引入当前glovar文件，此时namespace是glovar
+	import glovar
+
+	#从common目录中引入glovar，此时namespace是glovar
+	from comon import glovar
+
+	#从common目录中的glovar文件中引入x=1，此时namespace就是引用者，也就是上面的test.py
+	from common.glovar import x
+
+		链接：https://www.jianshu.com/p/4bb742d7d672
+		
+--------------------------------------------------------------------	
+SyntaxError: Generator expression must be parenthesized
+	迭代器表达式必须要括起来
+	>>> l=[1, 3, 4, 'ab', 'a']
+	>>> next((d for d in l if 'ac' in str(d)), 'ccc')
+	'ccc'
+	>>> next(d for d in l if 'ac' in str(d), 'ccc')
+	  File "<stdin>", line 1
+	SyntaxError: Generator expression must be parenthesized
+	>>>
+	
+--------------------------------------------------------------------
+Python专门设置的一种机制用来防止无限递归造成Python溢出，这个值理论上1000，实际运行时在900多次就会引发RuntimeError异常。
+
+解决方法
+	import sys 
+	sys.setrecursionlimit(1000000)
+
+根本之道
+	递归是个好东西，但是要少些，太耗费内存，容易溢出，改成非递归方式。
+	
+--------------------------------------------------------------------
